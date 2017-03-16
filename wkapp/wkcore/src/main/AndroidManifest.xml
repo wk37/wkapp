@@ -1,8 +1,22 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.wangke.wkcore">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wangke.wkcore">
 
-    <application android:allowBackup="true" android:label="@string/app_name"
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
         android:supportsRtl="true">
 
     </application>
+    <activity
+    android:name="com.github.mzule.activityrouter.router.RouterActivity"
+    android:theme="@android:style/Theme.NoDisplay">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
 
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:scheme="wkcore" /><!--改成自己的scheme-->
+    </intent-filter>
+</activity>
 </manifest>

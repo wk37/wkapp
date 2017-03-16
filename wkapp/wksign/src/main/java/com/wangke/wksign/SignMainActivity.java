@@ -10,7 +10,7 @@ public class SignMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_main);
+        setContentView(R.layout.wksign_activity_main);
         Utils.init(this);
     }
 }

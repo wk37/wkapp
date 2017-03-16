@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="wksign_SplashTheme" parent="AppTheme">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+        <item name="android:background">@color/text_red</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>
