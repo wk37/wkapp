@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="common_view_bg">#f4f4f4</color>
+
+    <color name="colorPrimary">#57c5c7</color>
+    <color name="colorPrimaryDark">#57c5c7</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_0176da">#0176da</color>
+
+    <color name="common_color_white">#FFFFFFFF</color>
+    <color name="common_color_black">#FF000000</color>
+    <color name="common_color_black_4">#444444</color>
+    <color name="common_textcolor_gray1">#99AFAFAF</color>
+    <color name="common_color_blue">#3F60E2</color>
+    <color name="common_content_bg">#F6F6F6</color>
+    <color name="common_textcolor_gray">#AFAFAF</color>
+    <color name="common_textcolor_black">#5C5C5C</color>
+    <color name="common_textcolor_green">#24DE29</color>
+    <!--<color name="rbtn_textcolor">#96d3ce</color>-->
+    <color name="actionbar_bg">#57c5c7</color>
+    <color name="bg_green">#57c5c7</color>
+    <color name="actionbar_bg2">#57c5c7</color>
+    <color name="html_bg">#5ccace</color>
+    <color name="bg_orange_f">#F36523</color>
+    <!--    <color name="line">#4ccccccc</color>
+        <color name="title_bg">#373737</color>-->
+    <color name="common_line_gray">#d4d4d4</color>
+    <color name="common_textcolor_blue">#1BACF1</color>
+    <color name="alarm_breakin">#8bde89</color>
+    <color name="common_textcolor_red">#FC3137</color>
+    <color name="textcolor_red">#Fd7d7d</color>
+
+    <!-- <color name="common_list_line">#F0F0F0</color>
+     <color name="smart_itme_bg">#E6F7FD</color>
+     <color name="smart_itme_bg_line">#20AEE5</color>-->
+    <color name="common_color_gray">#FF888888</color>
+    <color name="user_jifen_color">#39BCED</color>
+    <color name="gray_normal">#666667</color>
+    <color name="black2">#ffeeeeee</color>
+
+
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="common_color_orange">#FFFC901D</color>
+    <color name="alarm_door_close">#ffad6b</color>
+    <color name="alarm_door_open">#ff8383</color>
+    <color name="alarm_smoke">#f7dc5c</color>
+    <color name="alarm_pm25">#4dbcea</color>
+    <color name="alarm_voc">#6bd2ce</color>
+    <color name="alarm_electricity_door">#868ae1</color>
+    <color name="alarm_electricity_box">#e086e1</color>
+
+    <color name="item_normal">#00000000</color>
+    <color name="gray_color4">#dddddd</color>
+
+    <color name="common_color_black_8">#888</color>
+    <color name="common_color_black2">#333333</color>
+    <color name="common_color_blue2">#49acd5</color>
+    <color name="common_color_blue1">#49acb3</color>
+    <color name="common_color_f4">#f4f3f3</color>
+    <color name="common_color_999">#999999</color>
+    <color name="common_color_333">#333333</color>
+    <color name="common_color_666">#666666</color>
+    <color name="view_5599">#55999999</color>
+    <color name="comm_color_46bc62">#46bc62</color>
+    <!--<color name="common_color_c8">#c8c8c8</color>-->
+    <!--<color name="comon_line_user">#ebebeb</color>
+    <color name="common_color_d7">#d7d7d7</color>-->
+
+    <color name="light_gray">#99a4b7</color>
+    <color name="black">#000000</color>
+    <color name="btn_gray">#d1d1d1</color>
+    <color name="deep_gray">#394257</color>
+    <color name="light_blue">#87d0f2</color>
+    <color name="text_57c5">#57c5c7</color>
+
+    <color name="ssd_blue">#49acd5</color>
+    <color name="ssd_yelleo">#eaad44</color>
+    <color name="ssd_green">#46bc62</color>
+
+    <color name="home_room">#212837</color>
+    <color name="home_room_detail_text">#262626</color>
+    <color name="home_smart_mode_text">#46BC62</color>
+    <color name="home_smart_mode_button">#B5B5B5</color>
+    <color name="home_smart_mode_text_tip">#313131</color>
+    <color name="home_smart_common_background">#F3F4F4</color>
+
+    <color name="home_bg_green">#009591</color>
+
+    <color name="home_smart_bg_pink">#EC6CA5</color>
+
+    <!--新颜色标准   begin-->
+    <!-- 注意！注意！注意！ 定义一个新颜色前，请先搜索该颜色定义是否存在，如不存在，以以下方式按顺序命名-->
+    <!--wk   begin-->
+
+    <!--规则 1 ： 纯色部分，直接颜色名，后面数字表示透明度-->
+    <color name="white">#ffffff</color>
+    <color name="white0">#00ffffff</color>
+    <color name="white70">#4cffffff</color>
+    <color name="white95">#f2ffffff</color>
+
+    <!--规则 2： 背景，所有布局默认背景引用  bg_gray（请手动设置）
+        actionbar背景引用 bg_title_black（继承已实现）-->
+    <color name="bg_gray">#f4f3f3</color>
+    <color name="bg_title_black">#252e3d</color>
+    <color name="bg_room_green">#3d8a8b</color>
+
+
+    <!--规则 3 ： 线，以“line_ColorName”方式命名，后面可加数字透明度-->
+    <color name="line_gray">#cccccc</color>
+    <color name="line_gray_b5">#b5b5b5</color>
+    <color name="line_dark">#535353</color>
+    <color name="line_yellow">#cfb373</color>
+    <color name="line_green">#7dbc20</color>
+
+
+    <!--规则 4 ： 文字，以下分别为“标题、内容、提示文字”的颜色，默认引用这三个；
+    如需增加颜色，以“text_ColorName（透明度数字）”方式命名-->
+    <color name="text_title_black">#333333</color>
+    <color name="text_content_black">#666666</color>
+    <color name="text_hint_gray">#999999</color>
+    <color name="text_hint_gray2">#979797</color>
+    <color name="text_unchecked_green">#46bc62</color>
+    <color name="text_hint_yellow">#e9ac43</color>
+
+
+    <!--规则 5 ： 其他，以“位置_ColorName”方式命名，如以下为“家庭环境”界面可变背景颜色命名-->
+    <color name="env_bg_green">#ff45bd63</color>
+    <color name="env_bg_blue">#ff49acd5</color>
+    <color name="env_bg_yelleo">#ffd69e3d</color>
+    <color name="env_bg_gray">#ff9f9f9f</color>
+    <color name="env_bg_red">#ffe33840</color>
+    <color name="env_bg_black">#ff000000</color>
+
+    <!--规则 6 ： 备注，“ColorName”为最接近该色的颜色（如粉红pink），后面均可加两位数字透明度；
+    如两颜色相近，命名前缀也一样，请在末尾加上“_数字”以区分-->
+    <color name="bg_b2c_pay">#fc7357</color>
+    <color name="bg_b2c_cart">#FD9301</color>
+    <color name="bg_b2c_buy">#FF5001</color>
+    <!--wk   end-->
+
+    <!--sxx   begin-->
+    <color name="bg_orange">#E9Ac43</color>
+    <color name="text_cotent_green">#46BC62</color>
+    <color name="line_gray_dark">#1B2331</color>
+    <color name="device_top_bg_blue_ir">#29a7e1</color>
+    <color name="eqment_detail_blue">#A645b2fb</color>
+    <color name="eqment_detail_blue_00">#0045b2fb</color>
+    <color name="gray_bg">#F1F1F1</color>
+    <color name="evn_shidu_color1">#4ac236</color>
+    <color name="color_eaad44">#eaad44</color>
+
+
+
+
+    <!--sxx   end-->
+
+    <!--lyl   begin-->
+    <color name="device_top_bg_prnk">#5551ec</color>
+    <color name="device_top_bg_gray">#edac44</color>
+    <color name="text_hint_green">#63bd62</color>
+    <color name="device_top_bg_blue">#23B8BC</color>
+    <color name="device_top_bg_red">#fd7d7c</color>
+    <color name="goods_price_red">#f77357</color>
+    <color name="guanjia_head_green">#57c5c7</color>
+    <color name="color_57c4c7">#57c4c7</color>
+
+
+
+    <color name="graph_separate">#dee5e8</color>
+    <color name="graph_text">#15A0F5</color>
+    <color name="graph_fill">#15A0F5</color>
+    <color name="time_title_blue">#0000FF</color>
+    <color name="change_blue">#8CC8E0</color>
+    <color name="change_blue2">#DBEAF1</color>
+    <color name="text_red">#FD7D7D</color>
+    <color name="red_title">#E42F47</color>
+    <color name="red_text">#E42F47</color>
+
+    <color name="triangle">#aa72d572</color>
+    <color name="circle">#aa738ffe</color>
+    <color name="rect">#aae84e40</color>
+    <color name="view_bg">#00000000</color>
+    <color name="shadow">#25808080</color>
+    <color name="dialog_bg">#f5f5f5</color>
+
+
+    <!--lyl   end-->
+
+    <!--新颜色标准   end-->
+
+
+    <color name="j_wheel_timebtn_nor">#54a3fa</color>
+    <color name="j_wheel_timebtn_pre">#CCCCCC</color>
+
+    <!--add by qyf-->
+    <color name="drop_down_selected">#7B1FA2</color>
+    <color name="drop_down_unselected">#111111</color>
+
+    <color name="mask_color">#88888888</color>
+    <color name="check_bg">#f2f2f2</color>
+    <color name="un_press_color">#9C27B0</color>
+    <color name="red_fd6d4b">#fd6d4b</color>
+
+    <color name="balck_touming">#80000000</color>
+
+</resources>
