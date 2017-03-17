@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by wk37 on 2017/3/16.
  */
 
-public class WkAppUtils {
+public class WkAppUtil {
 
 
     private static Context context;
