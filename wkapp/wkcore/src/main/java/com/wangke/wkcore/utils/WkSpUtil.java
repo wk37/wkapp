@@ -48,7 +48,10 @@ public class WkSpUtil {
         FILE_NAME = defFileName;
     }
 
+    public static void init(Context context) {
+        WkSpUtil.context = context;
 
+    }
 
 
     /**
@@ -323,6 +326,8 @@ public class WkSpUtil {
         // 修改mPreferencesDir变量的值
         field.set(obj, file);
     }
+
+
 
     /**
      * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类

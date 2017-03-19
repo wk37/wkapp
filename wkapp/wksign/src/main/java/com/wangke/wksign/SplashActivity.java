@@ -1,11 +1,12 @@
 package com.wangke.wksign;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.blankj.utilcode.utils.AppUtils;
+import com.github.mzule.activityrouter.router.Routers;
 import com.wangke.wkcore.base.BaseWkActivity;
 import com.wangke.wkcore.others.SPConstants;
 import com.wangke.wkcore.utils.WkSpUtil;
@@ -21,18 +22,20 @@ public class SplashActivity extends BaseWkActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void setRootView() {
         setContentView(R.layout.wksign_activity_main);
-        initView();
-        jumpTo();
-
     }
 
-
-    private void initView() {
+    @Override
+    public void initView() {
         mActivitySignMain = (RelativeLayout) findViewById(R.id.activity_sign_main);
         mImgAd = (ImageView) findViewById(R.id.img_ad);
+    }
+
+    @Override
+    public void initData() {
+        jumpTo();
+
     }
 
 
@@ -53,24 +56,25 @@ public class SplashActivity extends BaseWkActivity {
         } else {     // 正常启动
             toLoginOrMain(false);
         }
-        finish();
 
     }
 
 
     private void toLoginOrMain(boolean mustLogin) {
         if (mustLogin || !isLogin) {
-            // TODO: 2017/3/17  LoginActivity
-            /*                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);*/
+
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
         } else {
             long time = adTime();
-            // TODO: 2017/3/17  MainActivity
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
 /*                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);*/
+                    Routers.open(SplashActivity.this, "wkapp://WKMainActivity");
+                    finish();
+
                 }
             }, time);
         }
@@ -80,9 +84,10 @@ public class SplashActivity extends BaseWkActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // TODO: 2017/3/17  WelcomeActivity
-                /*                    Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
-                    startActivity(intent);*/
+                Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
+                    startActivity(intent);
+                finish();
+
             }
         }, 1500);
     }
@@ -92,8 +97,10 @@ public class SplashActivity extends BaseWkActivity {
             return 1000;
         } else {
 
+            // TODO: 2017/3/19  广告 时间判断
+            return 5000;
         }
-        return 1000;
+//        return 1000;
     }
 
 

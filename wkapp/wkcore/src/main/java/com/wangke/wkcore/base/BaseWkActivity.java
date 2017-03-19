@@ -23,7 +23,7 @@ import android.widget.Toast;
 import org.greenrobot.eventbus.EventBus;
 
 
-public class BaseWkActivity extends AppCompatActivity {
+public abstract class BaseWkActivity extends AppCompatActivity {
 
     protected Context mContext;
     private HomeReceiver mHomeReceiver;
@@ -43,7 +43,21 @@ public class BaseWkActivity extends AppCompatActivity {
         mContext = this;
         Log.e("-->ActivityName:", getClass().getSimpleName());
 
+        setRootView(); // 必须放在annotate之前调用
+//        AnnotateUtil.initBindView(this);
+
+        initView();
+
+        initData();
+
     }
+
+
+    public abstract void setRootView();
+
+    public abstract void initView();
+
+    public abstract void initData();
 
     @Override
     protected void onResume() {
