@@ -99,7 +99,7 @@ public class SplashActivity extends BaseWkActivity {
     }
 
 
-    // 广告时间，考虑到 跳过广告 ，暂时实现
+    // 广告时间，考虑到 跳过广告 ，暂时没实现
     private long adTime() {
         if (!isLogin) {
             return 1000;
