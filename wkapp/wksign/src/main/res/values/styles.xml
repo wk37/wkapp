@@ -11,6 +11,7 @@
 
     <style name="wksign_SplashTheme" parent="AppTheme">
         <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+        <!-- 实际使用将下面属性设置为 图片，此处暂时用 颜色值代替-->
         <item name="android:background">@color/text_red</item>
         <item name="android:windowNoTitle">true</item>
     </style>

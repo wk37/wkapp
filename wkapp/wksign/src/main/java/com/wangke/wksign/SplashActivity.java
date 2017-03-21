@@ -11,6 +11,10 @@ import com.wangke.wkcore.base.BaseWkActivity;
 import com.wangke.wkcore.others.SPConstants;
 import com.wangke.wkcore.utils.WkSpUtil;
 
+
+/**
+ * 闪屏页，背景图片，通过 manifest 中 设置 theme
+ */
 public class SplashActivity extends BaseWkActivity {
 
     private RelativeLayout mActivitySignMain;
@@ -48,7 +52,7 @@ public class SplashActivity extends BaseWkActivity {
         if (spVersionCode < appVersionCode) {  // 新安装APP   覆盖安装
 
             if ((spVersionCode == 0) || hasNewGuide) {
-                toWecome();
+                toWecome();     // 为 0 ，即新安装的 APP ，直接 去欢迎界面
             } else {
                 toLoginOrMain(mustReLogin);
             }
@@ -60,13 +64,15 @@ public class SplashActivity extends BaseWkActivity {
     }
 
 
+    //去登录还是 主页
     private void toLoginOrMain(boolean mustLogin) {
         if (mustLogin || !isLogin) {
-
+            // 必须重新登录 或者  没登录过
             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
         } else {
             long time = adTime();
+            // 跳转到 主页
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -80,6 +86,7 @@ public class SplashActivity extends BaseWkActivity {
         }
     }
 
+    //去欢迎界面 ， 延时操作是为了 让APP初始化，也可以不延时
     private void toWecome() {
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -92,12 +99,15 @@ public class SplashActivity extends BaseWkActivity {
         }, 1500);
     }
 
+
+    // 广告时间，考虑到 跳过广告 ，暂时实现
     private long adTime() {
         if (!isLogin) {
             return 1000;
         } else {
 
             // TODO: 2017/3/19  广告 时间判断
+//            mImgAd.setImageResource();
             return 5000;
         }
 //        return 1000;
