@@ -24,7 +24,6 @@ public class SplashActivity extends BaseWkActivity {
     private boolean isLogin;            //是否登录过
     private boolean mustReLogin;      // 是否要求用户重新登录
 
-
     @Override
     public void setRootView() {
         setContentView(R.layout.wksign_activity_main);
