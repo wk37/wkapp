@@ -7,6 +7,7 @@ package com.wangke.wkcore.others;
 public class SPConstants {
 
     public static final String SP_VERSION_CODE = "sp_version_code";
+    public static final String SP_IS_LOGIN = "sp_islogin";
 
 
 }

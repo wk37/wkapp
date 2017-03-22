@@ -47,6 +47,7 @@ public class SplashActivity extends BaseWkActivity {
         // 获取当前版本号
         int appVersionCode = AppUtils.getAppVersionCode(this);
         int spVersionCode = (int) WkSpUtil.get(SPConstants.SP_VERSION_CODE, 0);
+        isLogin = (boolean) WkSpUtil.get(SPConstants.SP_IS_LOGIN, false);
 
         if (spVersionCode < appVersionCode) {  // 新安装APP   覆盖安装
 
@@ -68,7 +69,7 @@ public class SplashActivity extends BaseWkActivity {
         if (mustLogin || !isLogin) {
             // 必须重新登录 或者  没登录过
             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
+            startActivity(intent);
         } else {
             long time = adTime();
             // 跳转到 主页
@@ -91,7 +92,7 @@ public class SplashActivity extends BaseWkActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
-                    startActivity(intent);
+                startActivity(intent);
                 finish();
 
             }
