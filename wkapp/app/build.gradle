@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.wangke.wkapp"
         minSdkVersion 15
@@ -11,7 +11,6 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 /*    dexOptions {
@@ -51,5 +50,6 @@ dependencies {
     } else {
         compile project(':wkcore')
     }
+    compile 'com.android.support:multidex:+'
     apt 'com.github.mzule.activityrouter:compiler:1.1.7'
 }

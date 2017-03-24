@@ -1,17 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.wangke.wksign.LoginActivity">
+    android:orientation="vertical">
+
     <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="LoginActivity"
-        android:gravity="center"/>
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:text="Hello World!" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Volley" />
+            <Button
+                android:id="@+id/btn_get"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="get" />
+            <Button
+                android:id="@+id/btn_post"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="post" />
+            <Button
+                android:id="@+id/btn_put"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="put" />
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="delete" />
+            <Button
+                android:id="@+id/btn_upLoad"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="upLoad" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="OkHttp" />
+            <Button
+                android:id="@+id/btn_get_ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="get" />
+            <Button
+                android:id="@+id/btn_post_ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="post" />
+            <Button
+                android:id="@+id/btn_put_ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="put" />
+            <Button
+                android:id="@+id/btn_delete_ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="delete" />
+            <Button
+                android:id="@+id/btn_upLoad_ok"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="upLoad" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
 </LinearLayout>

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wangke.wkapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:name="com.wangke.wkapp.WKApplication"
         android:allowBackup="true"

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
         minSdkVersion 15
@@ -44,6 +44,7 @@ dependencies {
     compile 'com.github.mzule.activityrouter:activityrouter:1.2.2'
 
     compile 'com.zhy:okhttputils:2.6.2'
+    compile 'eu.the4thfloor.volley:com.android.volley:+'
     //ForRecyclerView
     compile 'com.zhy:base-rvadapter:3.0.3'
     //ForListView
