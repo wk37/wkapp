@@ -4,10 +4,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.wangke.wkcore.base.BaseWkActivity;
+import com.wangke.wkcore.http.HttpCallBack;
 import com.wangke.wkcore.http.HttpTest;
+import com.wangke.wkcore.http.OkHttpUtil;
 
 import org.greenrobot.eventbus.Subscribe;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * A login screen that offers login via email/password.
@@ -76,9 +82,10 @@ public class LoginActivity extends BaseWkActivity implements View.OnClickListene
         int i = view.getId();
         if (i == R.id.btn_get) {
             tag = "Volley GET";
-                    HttpTest.VolleyHttpUtilTest();
+                    HttpTest.VolleyHttpUtilTest(Request.Method.GET);
         } else if (i == R.id.btn_post) {
             tag = "Volley POST";
+            HttpTest.VolleyHttpUtilTest(Request.Method.POST);
 
         } else if (i == R.id.btn_put) {
             tag = "Volley PUT";
@@ -91,9 +98,36 @@ public class LoginActivity extends BaseWkActivity implements View.OnClickListene
 
         } else if (i == R.id.btn_get_ok) {
             tag = "OK GET";
+            // 单独测试类处理
+            HttpTest.OKHttpUtilTest(OkHttpUtil.GET);
 
         } else if (i == R.id.btn_post_ok) {
             tag = "OK POST";
+
+            Map<String, String> map = new TreeMap<>();
+            map.put("json", HttpTest.getJsonStr());
+
+            // BaseActivity request() 请求
+            request(OkHttpUtil.POST, HttpTest.url, map, new HttpCallBack<String>() {
+                @Override
+                public void onSuccess(int code, String data) {
+                    // 接口返回数据，UI线程，可直接操作控件
+                    mText.setText(tag+"\n"+data);
+
+                }
+
+                @Override
+                public void onFail(String msg) {
+                    mText.setText(tag+"\n"+msg);
+
+                }
+            });
+
+                //写法2： 后面写 this ， 在Activity ，里面处理，暂时不用这种
+                // 考虑到 一个界面可能会请求多个接口，需要在请求前 传入tag，暂时未实现
+//            request(OkHttpUtil.POST, HttpTest.url, map, this);
+
+
 
         } else if (i == R.id.btn_put_ok) {
             tag = "OK PUT";
@@ -114,6 +148,7 @@ public class LoginActivity extends BaseWkActivity implements View.OnClickListene
         return true;
     }
 
+    // EventBus 3.0 需要加此注解，来接受消息，测试用 String 类型，实际需要自定义一个类来处理
     @Subscribe
     public void onEventMainThread(String event) {
 

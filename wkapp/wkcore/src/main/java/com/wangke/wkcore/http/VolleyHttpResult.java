@@ -4,7 +4,7 @@ package com.wangke.wkcore.http;
  * Created by wk37 on 2017/3/24.
  */
 
-public class HttpResult {
+public class VolleyHttpResult {
 
     private Object data;
     private int code;

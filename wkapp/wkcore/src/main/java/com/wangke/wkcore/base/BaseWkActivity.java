@@ -20,7 +20,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.wangke.wkcore.http.HttpCallBack;
+import com.wangke.wkcore.http.OkHttpUtil;
+
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.Map;
 
 
 public abstract class BaseWkActivity extends AppCompatActivity {
@@ -209,4 +214,19 @@ public abstract class BaseWkActivity extends AppCompatActivity {
             im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+
+    /**
+     *
+     * @param method    get or post...
+     * @param url
+     * @param map       参数map合集
+     * @param httpCallBack   必须new
+     * @param <T>               返回值的泛型
+     */
+    public  <T> void request(int method, String url, Map<String, String> map, final HttpCallBack<T> httpCallBack){
+
+        OkHttpUtil.request(method, url, map , httpCallBack);
+
+    }
+
 }

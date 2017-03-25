@@ -1,7 +1,5 @@
 package com.wangke.wkcore.http;
 
-import com.android.volley.Request;
-import com.blankj.utilcode.utils.LogUtils;
 import com.google.gson.Gson;
 import com.wangke.wkcore.http.temptest.MD5Util;
 import com.wangke.wkcore.http.temptest.MapKeyComparator;
@@ -13,41 +11,52 @@ import java.util.TreeMap;
 
 /**
  * Created by wk37 on 2017/3/24.
+ * 测试 网络请求 类
  */
 
 public class HttpTest {
+    // 测试接口
+   public static String url = "http://sz.wisdudu.com/api/Home/eqment/manage.html";
 
-
-
-    public static void  VolleyHttpUtilTest(){
-        String url = "http://sz.wisdudu.com/api/Home/eqment/manage.html";
-
+    // 测试 Volley 请求
+    public static void  VolleyHttpUtilTest(int method){
         Map<String, String> map = new TreeMap<>();
-
         map.put("json", getJsonStr());
 
-        VolleyHttpUtil.getInstance().request(Request.Method.GET, url, map, new HttpCallBack<String>() {
+        VolleyHttpUtil.getInstance().request(method, url, map, new HttpCallBack<String>() {
             @Override
             public void onSuccess(int code, String data) {
-                LogUtils.e("HttpUtilTest    Volley",code+"    "+data );
                 EventBus.getDefault().post(code+data);
             }
 
             @Override
             public void onFail(String msg) {
-                LogUtils.e("HttpUtilTest    Volley",  "  fail  "+msg );
                 EventBus.getDefault().post("fail"+msg);
-
             }
         }
-    );
-
-
-
-
+        );
     }
 
+    // 测试 OkHttp 请求 ，已封装到 BaseActivity 的 request 方法
+    public static void  OKHttpUtilTest(int method){
+        Map<String, String> map = new TreeMap<>();
+        map.put("json", getJsonStr());
 
+        OkHttpUtil.request(method, url, map , new HttpCallBack<String>() {
+            @Override
+            public void onSuccess(int code, String data) {
+                EventBus.getDefault().post(code+data);
+            }
+
+            @Override
+            public void onFail(String msg) {
+                EventBus.getDefault().post("fail   "+msg);
+
+            }
+        });
+    }
+
+    //测试接口需要用的 数据转换，
     public static  String getJsonStr() {
         Map<String, Object> map = new TreeMap<>();
         map.put("phone", "18888888888");
@@ -61,8 +70,7 @@ public class HttpTest {
 
         return jsonStr;
     }
-
-
+    // 测试接口需要用到的数据转换
     public static String getMD5Key(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {
             return null;
@@ -77,7 +85,7 @@ public class HttpTest {
         tempStr = tempStr + code;
         return MD5Util.MD5(tempStr);
     }
-
+    //测试接口需要用的 数据转换，
     public static Map<String, Object> sortMapByKey(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {
             return null;
