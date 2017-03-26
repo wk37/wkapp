@@ -23,16 +23,16 @@ public class HttpTest {
         Map<String, String> map = new TreeMap<>();
         map.put("json", getJsonStr());
 
-        VolleyHttpUtil.getInstance().request(method, url, map, new HttpCallBack<String>() {
-            @Override
-            public void onSuccess(int code, String data) {
-                EventBus.getDefault().post(code+data);
-            }
+        VolleyHttpUtil.getInstance().request("Volley", method, url, map, new HttpCallBack<String>() {
+                    @Override
+                    public void onSuccess(Object tag, int code, String data) {
+                        EventBus.getDefault().post(new EventBusBean<String>(tag, code , data));
+                    }
 
-            @Override
-            public void onFail(String msg) {
-                EventBus.getDefault().post("fail"+msg);
-            }
+                    @Override
+                    public void onFail(Object tag, String msg) {
+                        EventBus.getDefault().post(new EventBusBean<String>(tag, -1 , msg));
+                    }
         }
         );
     }
@@ -42,17 +42,20 @@ public class HttpTest {
         Map<String, String> map = new TreeMap<>();
         map.put("json", getJsonStr());
 
-        OkHttpUtil.request(method, url, map , new HttpCallBack<String>() {
+        OkHttpUtil.getInstance().request("ok", method, url, map , new HttpCallBack<String>() {
             @Override
-            public void onSuccess(int code, String data) {
-                EventBus.getDefault().post(code+data);
+            public void onSuccess(Object tag, int code, String data) {
+                EventBus.getDefault().post(new EventBusBean<String>(tag, code , data));
             }
 
             @Override
-            public void onFail(String msg) {
-                EventBus.getDefault().post("fail   "+msg);
+            public void onFail(Object tag, String msg) {
+                EventBus.getDefault().post(new EventBusBean<String>(tag, -1 , msg));
+
 
             }
+
+
         });
     }
 

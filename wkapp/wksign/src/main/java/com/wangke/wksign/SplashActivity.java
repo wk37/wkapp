@@ -70,6 +70,8 @@ public class SplashActivity extends BaseWkActivity {
             // 必须重新登录 或者  没登录过
             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(intent);
+            finish();
+
         } else {
             long time = adTime();
             // 跳转到 主页

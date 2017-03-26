@@ -6,7 +6,7 @@ package com.wangke.wkcore.http;
 
 public abstract class HttpCallBack<T> {
 
-    public abstract void onSuccess(int code, T data);
+    public abstract void onSuccess(Object tag , int code, T data);
 
-    public abstract void onFail(String msg);
+    public abstract void onFail(Object tag , String msg);
 }

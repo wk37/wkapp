@@ -57,7 +57,7 @@ public class VolleyHttpUtil {
      * @param param        参数
      * @param httpCallBack 回调
      */
-    public <T> void request(int method, String url, final Map<String, String> param, final HttpCallBack<T> httpCallBack) {
+    public <T> void request(final Object tag , int method, String url, final Map<String, String> param, final HttpCallBack<T> httpCallBack) {
 
         StringRequest stringRequest = new StringRequest(method, BASE_URL + url,
                 new Response.Listener<String>() {
@@ -79,10 +79,10 @@ public class VolleyHttpUtil {
                                 //获取data对应的json字符串
                                 String json = mGson.toJson(okHttpResult.getData());
                                 if (type == String.class) {//泛型是String，返回结果json字符串
-                                    httpCallBack.onSuccess(okHttpResult.getCode(), (T) json);
+                                    httpCallBack.onSuccess(tag, okHttpResult.getCode(), (T) json);
                                 } else {//泛型是实体或者List<>
                                     T t = mGson.fromJson(json, type);
-                                    httpCallBack.onSuccess( okHttpResult.getCode(), t);
+                                    httpCallBack.onSuccess(tag,  okHttpResult.getCode(), t);
                                 }
                             }
                         }
@@ -96,7 +96,7 @@ public class VolleyHttpUtil {
 
                 String msg = error.getMessage();
                 LogUtils.e("Volley  fail ",msg );
-                httpCallBack.onFail(msg);
+                httpCallBack.onFail(tag, msg);
             }
         }) {
             @Override

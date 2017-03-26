@@ -28,10 +28,11 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.Map;
 
 
-public abstract class BaseWkActivity extends AppCompatActivity {
+public abstract class BaseWkActivity extends AppCompatActivity  {
 
     protected Context mContext;
     private HomeReceiver mHomeReceiver;
+    private OkHttpUtil okHttpUtil;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public abstract class BaseWkActivity extends AppCompatActivity {
         }
         mContext = this;
         Log.e("-->ActivityName:", getClass().getSimpleName());
+        okHttpUtil = OkHttpUtil.getInstance();
 
         setRootView(); // 必须放在annotate之前调用
 //        AnnotateUtil.initBindView(this);
@@ -216,17 +218,32 @@ public abstract class BaseWkActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     *  默认 穿 this 为网络请求 tag 方便退出activity取消请求
      * @param method    get or post...
      * @param url
      * @param map       参数map合集
      * @param httpCallBack   必须new
      * @param <T>               返回值的泛型
      */
-    public  <T> void request(int method, String url, Map<String, String> map, final HttpCallBack<T> httpCallBack){
+    public  <T> void OkRequest(int method, String url, Map<String, String> map, final HttpCallBack<T> httpCallBack){
 
-        OkHttpUtil.request(method, url, map , httpCallBack);
+        okHttpUtil.request(this , method, url, map , httpCallBack);
 
     }
+
+    /**
+     *  该方法 网络请求需要在 EventBus 的接受方法里面处理 数据，返回数据为 String
+     * @param tag  自定义tag
+     * @param method
+     * @param url
+     * @param map
+     */
+    public   void OkRequest(Object tag, int method, String url, Map<String, String> map ){
+
+        okHttpUtil.request(tag, method, url, map);
+
+    }
+
+
 
 }
