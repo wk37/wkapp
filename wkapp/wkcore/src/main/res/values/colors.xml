@@ -2,9 +2,8 @@
 <resources>
 
     <color name="common_view_bg">#f4f4f4</color>
-
-    <color name="colorPrimary">#57c5c7</color>
-    <color name="colorPrimaryDark">#57c5c7</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_0176da">#0176da</color>
 

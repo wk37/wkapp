@@ -3,106 +3,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:background="@color/colorPrimary"
         android:gravity="center"
-        android:text="Hello World!" />
+        android:text="Hello World!"
+        android:textColor="@color/white" />
 
-    <LinearLayout
+    <com.wangke.wkviews.ClearEditText
+        android:layout_marginTop="30dp"
+        android:id="@+id/login_edit_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@color/gray_bg"
+        android:gravity="center_vertical"
+        android:hint="手机号"
+        android:inputType="phone"
+        android:longClickable="false"
+        android:maxLength="11"
+        android:textColor="@color/common_color_333"
+        android:textColorHighlight="@color/common_color_999"
+        android:textColorHint="#9baaaf"
+        android:textSize="17sp" />
+
+    <com.wangke.wkviews.ClearEditText
+        android:layout_marginTop="3dp"
+        android:id="@+id/login_edit_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@color/gray_bg"
+        android:gravity="center_vertical"
+        android:hint="密码"
+        android:longClickable="false"
+        android:maxLength="11"
+        android:textColor="@color/common_color_333"
+        android:textColorHighlight="@color/common_color_999"
+        android:textColorHint="#9baaaf"
+        android:textSize="17sp" />
 
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Volley" />
-            <Button
-                android:id="@+id/btn_get"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="get" />
-            <Button
-                android:id="@+id/btn_post"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="post" />
-            <Button
-                android:id="@+id/btn_put"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="put" />
-            <Button
-                android:id="@+id/btn_delete"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="delete" />
-            <Button
-                android:id="@+id/btn_upLoad"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="upLoad" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="OkHttp" />
-            <Button
-                android:id="@+id/btn_get_ok"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="get" />
-            <Button
-                android:id="@+id/btn_post_ok"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="post" />
-            <Button
-                android:id="@+id/btn_put_ok"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="put" />
-            <Button
-                android:id="@+id/btn_delete_ok"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="delete" />
-            <Button
-                android:id="@+id/btn_upLoad_ok"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="upLoad" />
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-
-
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="60dp"
+            android:textColor="@color/white"
+            style="@style/ButtonTheme"
+            android:theme="@style/ButtonTheme"
+            android:text="login"/>
 
 </LinearLayout>
+
+

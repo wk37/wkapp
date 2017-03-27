@@ -41,8 +41,8 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':wkcore')
+    compile project(':wkviews')
     //router
     apt 'com.github.mzule.activityrouter:compiler:1.1.7'
-
 
 }

@@ -20,9 +20,9 @@ public class SplashActivity extends BaseWkActivity {
     private RelativeLayout mActivitySignMain;
     private ImageView mImgAd;
 
-    private boolean hasNewGuide = true;  //相对上一版，是否有更新 引导图，有，设置该值 为true
+    private boolean hasNewGuide = false;  //相对上一版，是否有更新 引导图，有，设置该值 为true
     private boolean isLogin;            //是否登录过
-    private boolean mustReLogin;      // 是否要求用户重新登录
+    private boolean mustReLogin = true;      // 是否要求用户重新登录
 
     @Override
     public void setRootView() {
@@ -59,6 +59,7 @@ public class SplashActivity extends BaseWkActivity {
             WkSpUtil.put(SPConstants.SP_VERSION_CODE, appVersionCode);
         } else {     // 正常启动
             toLoginOrMain(false);
+
         }
 
     }
@@ -110,7 +111,7 @@ public class SplashActivity extends BaseWkActivity {
 
             // TODO: 2017/3/19  广告 时间判断
 //            mImgAd.setImageResource();
-            return 5000;
+            return 1000;
         }
 //        return 1000;
     }

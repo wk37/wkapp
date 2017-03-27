@@ -3,25 +3,25 @@
 
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
 
-        <activity android:name=".base.BaseWkActivity" />
+        <activity
+            android:name="com.github.mzule.activityrouter.router.RouterActivity"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="wkcore" /><!--改成自己的scheme-->
+            </intent-filter>
+        </activity>
     </application>
-    <activity
-    android:name="com.github.mzule.activityrouter.router.RouterActivity"
-    android:theme="@android:style/Theme.NoDisplay">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
 
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-
-        <data android:scheme="wkcore" /><!--改成自己的scheme-->
-    </intent-filter>
-</activity>
 </manifest>

@@ -7,12 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="wksign_ImageTranslucentTheme" parent="AppTheme">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+    </style>
 
     <style name="wksign_SplashTheme" parent="AppTheme">
         <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
         <!-- 实际使用将下面属性设置为 图片，此处暂时用 颜色值代替-->
-        <item name="android:background">@color/text_red</item>
+        <item name="android:background">@drawable/splash_bg</item>
         <item name="android:windowNoTitle">true</item>
     </style>
 

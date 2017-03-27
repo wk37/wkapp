@@ -62,7 +62,7 @@ public class HttpTest {
     //测试接口需要用的 数据转换，
     public static  String getJsonStr() {
         Map<String, Object> map = new TreeMap<>();
-        map.put("phone", "18888888888");
+        map.put("phone", "13207090037");
         map.put("type", 1);
         int tempTime = (int) ((System.currentTimeMillis()) / 1000);
         map.put("tempTime", tempTime);
