@@ -24,7 +24,6 @@ public class WelcomeActivity extends BaseWkActivity {
     @Override
     public void setRootView() {
         setContentView(R.layout.wksign_activity_welcome);
-        WkSpUtil.put(SPConstants.SP_IS_LOGIN, false);
     }
 
     @Override

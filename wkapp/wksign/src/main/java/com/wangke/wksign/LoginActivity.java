@@ -34,7 +34,6 @@ public class LoginActivity extends BaseWkActivity {
     @Override
     public void setRootView() {
         setContentView(R.layout.wksign_activity_login);
-        WkSpUtil.put(SPConstants.SP_IS_LOGIN, false);
     }
 
     @Override

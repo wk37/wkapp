@@ -50,7 +50,10 @@ public class SplashActivity extends BaseWkActivity {
         isLogin = (boolean) WkSpUtil.get(SPConstants.SP_IS_LOGIN, false);
 
         if (spVersionCode < appVersionCode) {  // 新安装APP   覆盖安装
-
+            if (mustReLogin) {//覆盖安装时，如果新版要求重新登录，先将登录状态置否
+                WkSpUtil.put(SPConstants.SP_IS_LOGIN, false);
+                isLogin = false;
+            }
             if ((spVersionCode == 0) || hasNewGuide) {
                 toWecome();     // 为 0 ，即新安装的 APP ，直接 去欢迎界面
             } else {
