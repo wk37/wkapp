@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
+import com.github.mzule.activityrouter.annotation.Router;
 import com.wangke.wkcore.base.BaseWkActivity;
 import com.wangke.wkcore.http.EventBusBean;
 import com.wangke.wkcore.http.HttpCallBack;
@@ -19,6 +20,7 @@ import java.util.TreeMap;
 /**
  * A login screen that offers login via email/password.
  */
+@Router("NetTestActivity")
 public class NetTestActivity extends BaseWkActivity implements View.OnClickListener {
     private TextView mText;
     private Button mBtnGet;

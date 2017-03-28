@@ -37,7 +37,7 @@ public class OkHttpUtil {
 
     public static OkHttpUtil getInstance() {
         if (okHttpUtil == null) {
-            synchronized (VolleyHttpUtil.class) {
+            synchronized (OkHttpUtil.class) {
                 if (okHttpUtil == null) {
                     okHttpUtil = new OkHttpUtil();
                 }
@@ -108,6 +108,7 @@ public class OkHttpUtil {
                 .url(url)
                 .params(map)
                 .tag(tag)
+//                .mediaType(MediaType.parse("application/json; charset=utf-8"))
                 .build()
                 .execute(new StringCallback() {
                     @Override
