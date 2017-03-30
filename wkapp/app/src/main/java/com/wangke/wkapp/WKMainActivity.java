@@ -1,19 +1,27 @@
 package com.wangke.wkapp;
 
-import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.widget.Toolbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 
 import com.github.mzule.activityrouter.annotation.Router;
+import com.wangke.wkapp.adapter.MyFragmentPagerAdapter;
+import com.wangke.wkapp.fragment.TestFargment;
 import com.wangke.wkcore.base.BaseWkActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Router("WKMainActivity")
 public class WKMainActivity extends BaseWkActivity {
 
-    private CollapsingToolbarLayout collapsingToolbarLayout;
     private AppBarLayout appBarLayout;
-    private Toolbar toolbar;
+    private TabLayout mAppbarLayoutTablayout;
+    private ViewPager mViewpager;
+
+
+
 
     @Override
     public void setRootView() {
@@ -23,9 +31,9 @@ public class WKMainActivity extends BaseWkActivity {
 
     @Override
     public void initView() {
-        toolbar = (Toolbar) findViewById(R.id.appbar_layout_toolbar);
+        mAppbarLayoutTablayout = (TabLayout) findViewById(R.id.appbar_layout_tablayout);
+        mViewpager = (ViewPager) findViewById(R.id.viewpager);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar_layout);
-        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapse_layout);
 
     }
 
@@ -33,8 +41,6 @@ public class WKMainActivity extends BaseWkActivity {
     public void initData() {
 //        toolbar.setTitleTextColor(Color.TRANSPARENT);
 ////        collapsingToolbarLayout.setTitle("");
-        collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
-        collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
 //        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 //            @Override
 //            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -47,5 +53,24 @@ public class WKMainActivity extends BaseWkActivity {
 //                }
 //            }
 //        });
+
+        List<Fragment> mFragmentList = new ArrayList<>();
+        mFragmentList.add(TestFargment.newInstance(1+""));
+        mFragmentList.add(TestFargment.newInstance(2+""));
+        mFragmentList.add(TestFargment.newInstance(3+""));
+
+
+        MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(
+                getSupportFragmentManager(), mFragmentList);
+
+        mViewpager.setAdapter(adapter);
+
+        mAppbarLayoutTablayout.setupWithViewPager(mViewpager);
+
     }
+
+
+
+
+
 }

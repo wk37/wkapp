@@ -132,6 +132,19 @@ public class NetTestActivity extends BaseWkActivity implements View.OnClickListe
 
         } else if (i == R.id.btn_delete_ok) {
             tag = "OK DELETE";
+            OkRequest(OkHttpUtil.DELETE, HttpTest.url, map, new HttpCallBack<String>() {
+                @Override
+                public void onSuccess(Object tag, int code, String data) {
+                    // 接口返回数据，UI线程，可直接操作控件
+                    mText.setText(tag+"\n"+data);
+
+                }
+
+                @Override
+                public void onFail(Object tag , String msg) {
+                    mText.setText(tag+"\n"+msg);
+                }
+            });
 
         } else if (i == R.id.btn_upLoad_ok) {
             tag = "OK UPLOAD";

@@ -81,6 +81,7 @@ public class OkHttpUtil {
 
                 break;
             case DELETE:
+                delete(tag, url, map, httpCallBack);
 
                 break;
             case HEAD:
@@ -144,23 +145,23 @@ public class OkHttpUtil {
                 });
     }
 
-    public void delete(String url, Map<String, Object> map) {
+    public  <T> void delete(final Object tag, String url, Map<String, String> map , final HttpCallBack<T> httpCallBack) {
 
         String json = "{\"channel\":1,\"eqmsn\":\"1469174209\",\"sign\":\"c449eabb1f0bcf8796a720ae74141b8c\",\"tempTime\":1469175007,\"userid\":37}";
         OkHttpUtils
                 .delete()
-                .url(url + "?json=" + json)
-//                .requestBody( json)
+                .url(url /*+ "?json=" + json*/)
+                .requestBody( json)
                 .build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        onFialBack(httpCallBack, tag, e.getMessage());
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-
+                        onSuccessBack(httpCallBack, tag, response);
                     }
                 });
     }
