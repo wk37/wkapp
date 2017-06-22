@@ -3,10 +3,12 @@ package com.wangke.wkcore.http;
 import com.blankj.utilcode.utils.LogUtils;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.FileCallBack;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.File;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -205,10 +207,37 @@ public class OkHttpUtil {
 
     // 点击回调
     public interface Databack {
-        void onStringResponse(String response, int cancalTag);
+        void onStringResponse(String respons int cancalTag);
 
 
     }*/
+
+
+    public  <T> void download(final Object tag, String url, String filePath, String fileName , final HttpFileCallBack httpCallBack) {
+
+        OkHttpUtils
+                .post()
+                .url(url)
+                .tag(tag)
+                .build()
+                .execute(new FileCallBack( filePath,  fileName) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        onFialBack(httpCallBack, tag, e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(File response, int id) {
+                        onFileSuccessBack(httpCallBack, tag, response);
+                    }
+
+                    @Override
+                    public void inProgress(float progress, long total, int id) {
+                        httpCallBack.inProgress( progress,  total,  id);
+                    }
+                });
+    }
+
 
 
     private <T> void onFialBack(final HttpCallBack<T> httpCallBack, Object tag, String msg) {
@@ -221,6 +250,13 @@ public class OkHttpUtil {
     }
 
 
+    private  void onFileSuccessBack(HttpFileCallBack httpCallBack, Object tag, File response) {
+        LogUtils.e("OK success", response);
+        if (response != null && response.exists()) {
+            httpCallBack.onSuccess(tag, 200,response);
+        }
+
+    }
     private <T> void onSuccessBack(HttpCallBack<T> httpCallBack, Object tag, String response) {
         if (httpCallBack == null) {
             return;

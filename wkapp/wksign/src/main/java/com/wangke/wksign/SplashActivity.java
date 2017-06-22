@@ -12,6 +12,7 @@ import com.blankj.utilcode.utils.AppUtils;
 import com.bumptech.glide.Glide;
 import com.github.mzule.activityrouter.router.Routers;
 import com.wangke.wkcore.base.BaseWkActivity;
+import com.wangke.wkcore.http.temptest.MD5Util;
 import com.wangke.wkcore.others.SPConstants;
 import com.wangke.wkcore.utils.WkSpUtil;
 
@@ -26,7 +27,6 @@ public class SplashActivity extends BaseWkActivity implements View.OnClickListen
     private RelativeLayout mActivitySignMain;
     private ImageView mImgAd;
     private Button mSpJumpBtn;
-
 
     private boolean hasNewGuide = false;  //相对上一版，是否有更新 引导图，有，设置该值 为true
     private boolean isLogin;            //是否登录过
@@ -132,25 +132,35 @@ public class SplashActivity extends BaseWkActivity implements View.OnClickListen
     // 本地下载广告图的时候，将 该图名 定为 过期时间戳
     private boolean hasAD() {
         boolean hasAD = false;
-
-        long adDeadLine = (long) WkSpUtil.get(SPConstants.SP_DEADLINE, 0L);
+        String adMD5 = "";
+        long adDeadLine = (long) WkSpUtil.get(SPConstants.SP_AD_DEADLINE, 0L);
         long timeMillis = System.currentTimeMillis();
         // 广告时间未过期
         if (adDeadLine > timeMillis) {
             File file = new File(this.getApplicationContext().getFilesDir().getPath() + "/" + adDeadLine);
             if ((file != null) && file.exists()) {
+                adMD5 = MD5Util.MD5(file.getAbsolutePath());
+                // TODO: 2017/6/22 此处应该用 封装过的 Glide
                 Glide.with(this).load(file).into(mImgAd);
                 hasAD = true;
             }
         }
-        downloadNewAD();
+        downloadNewAD(adDeadLine+"", adMD5);
         return hasAD;
 
     }
 
-    private void downloadNewAD() {
-        // TODO: 2017/6/21 用 IntentServer 下载广告，并将其命名为 时间戳, 并将  时间戳 存为 sp
+    /**
+     *       用 IntentService 下载广告，并将其命名为 时间戳, 并将  时间戳 存为 sp
+     * @param adDeadLine
+     * @param adMD5     将 本地广告图 的 MD5 上传，让服务器确定下次下载的  新广告图 和之前的不一样
+     */
+    private void downloadNewAD(String adDeadLine, String adMD5) {
 
+        Intent downloadADIntent = new Intent(this.getApplicationContext(), DownloadADIntentService.class);
+        downloadADIntent.putExtra("adDeadLine", adDeadLine);
+        downloadADIntent.putExtra("adMD5", adMD5);
+        this.getApplicationContext().startService(downloadADIntent);
     }
 
     private CountDownTimer countDownTimer = new CountDownTimer(3200, 1000) {
