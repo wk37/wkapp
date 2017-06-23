@@ -12,6 +12,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 /*    dexOptions {
         //使用增量模式构建
@@ -40,7 +41,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
 
     println IsBuildMudle.toBoolean()
     if (!IsBuildMudle.toBoolean()) {
@@ -50,6 +50,8 @@ dependencies {
     } else {
         compile project(':wkcore')
     }
-    compile 'com.android.support:multidex:+'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-vector-drawable:25.3.1'
+    testCompile 'junit:junit:4.12'
     apt 'com.github.mzule.activityrouter:compiler:1.1.7'
 }

@@ -13,14 +13,12 @@ import com.wangke.wkcore.base.BaseWkActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-@Router("WKMainActivity")
+@Router("WKMainActivity2")
 public class WKMainActivity extends BaseWkActivity {
 
     private AppBarLayout appBarLayout;
     private TabLayout mAppbarLayoutTablayout;
     private ViewPager mViewpager;
-
-
 
 
     @Override
