@@ -3,8 +3,6 @@ package com.wangke.wksign;
 import android.content.Intent;
 
 import com.wangke.wkcore.base.BaseWkActivity;
-import com.wangke.wkcore.others.SPConstants;
-import com.wangke.wkcore.utils.WkSpUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -34,13 +32,12 @@ public class WelcomeActivity extends BaseWkActivity {
 
     @Override
     public void initData() {
-        mBanner.isAutoPlay(false);
 
         final List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.welcome_1);
-        images.add(R.drawable.welcome_2);
-        images.add(R.drawable.welcome_3);
-        images.add(R.drawable.welcome_4);
+        images.add(R.drawable.write);
+        images.add(R.drawable.fish2);
+        images.add(R.drawable.fish);
+        images.add(R.drawable.facebook);
         mBanner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
@@ -52,6 +49,7 @@ public class WelcomeActivity extends BaseWkActivity {
             }
         });
         mBanner.setOffscreenPageLimit(4);
+        mBanner.isLoopPlay(false);
         mBanner.setBannerStyle(BannerConfig.NUM_INDICATOR);
         mBanner.setImages(images).setImageLoader(new GlideImageLoader()).start();
     }

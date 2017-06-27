@@ -1,15 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion  rootProject.ext.android.compileSdkVersion
+    buildToolsVersion  rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -53,7 +52,7 @@ dependencies {
 
     compile 'org.greenrobot:eventbus:3.0.0'
     // 轮播图
-    compile 'com.youth.banner:banner:1.4.9'
+    compile (name:'banner', ext:'aar')
     compile 'com.github.ksoichiro:Android-observablescrollview:+'
     compile 'com.android.support:multidex:+'
 
