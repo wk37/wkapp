@@ -27,6 +27,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"></activity>
+        <activity android:name=".ABarActivity" />
     </application>
 
 </manifest>

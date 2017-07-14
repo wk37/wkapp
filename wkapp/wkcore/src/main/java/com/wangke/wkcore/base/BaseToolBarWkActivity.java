@@ -51,12 +51,11 @@ public abstract class BaseToolBarWkActivity extends BaseWkActivity {
     public void getIntentInfo() {
     }
 
+    @Override
+    public boolean hasR() {
+        return false;
+    }
 
-    public abstract void setRootView();
-
-    public abstract void initView();
-
-    public abstract void initData();
 
     public void setContentView() {
         super.setContentView(mContainer);

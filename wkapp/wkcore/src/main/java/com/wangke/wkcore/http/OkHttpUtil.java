@@ -212,6 +212,12 @@ public class OkHttpUtil {
 
     }*/
 
+    public void cancelTag(Object object) {
+
+        OkHttpUtils.getInstance().cancelTag(object);
+
+
+    }
 
     public  <T> void download(final Object tag, String url, String filePath, String fileName , final HttpFileCallBack httpCallBack) {
 

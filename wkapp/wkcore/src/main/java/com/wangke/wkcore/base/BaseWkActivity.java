@@ -50,15 +50,22 @@ public abstract class BaseWkActivity extends AppCompatActivity  {
         Log.e("-->ActivityName:", getClass().getSimpleName());
         okHttpUtil = OkHttpUtil.getInstance();
 
-        setRootView(); // 必须放在annotate之前调用
-//        AnnotateUtil.initBindView(this);
+        if (hasR()) {
+            setRootView();
+            initView();
+            initData();
 
-        initView();
-
-        initData();
+        }
 
     }
 
+    /**
+     *  防止抽象函数报空，此方法仅 BaseToolBarActivity 调用，其他子类无需实现
+     * @return
+     */
+    public boolean hasR() {
+        return true;
+    }
 
     public abstract void setRootView();
 

@@ -57,8 +57,8 @@ public class SplashActivity extends BaseWkActivity implements View.OnClickListen
     @Override
     public void initData() {
 
-        toWelcomeActivity();
-//        jumpTo();
+//        toWelcomeActivity();
+        jumpTo();
     }
 
 

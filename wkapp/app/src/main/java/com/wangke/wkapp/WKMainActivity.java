@@ -13,7 +13,7 @@ import com.wangke.wkcore.base.BaseWkActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-@Router("WKMainActivity2")
+@Router("WKMainActivity")
 public class WKMainActivity extends BaseWkActivity {
 
     private AppBarLayout appBarLayout;
@@ -64,6 +64,8 @@ public class WKMainActivity extends BaseWkActivity {
         mViewpager.setAdapter(adapter);
 
         mAppbarLayoutTablayout.setupWithViewPager(mViewpager);
+
+        startAct(ABarActivity.class);
 
     }
 

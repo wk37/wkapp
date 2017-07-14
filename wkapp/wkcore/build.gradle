@@ -56,5 +56,6 @@ dependencies {
     compile 'com.github.ksoichiro:Android-observablescrollview:+'
     compile 'com.android.support:multidex:+'
 
+    compile 'com.nineoldandroids:library:2.4.0'
 
 }

@@ -36,24 +36,31 @@ public class TestFargment extends BaseFragment {
     }
 
     @Override
+    public void onLazyLoad() {
+
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+
+    @Override
+    public View setRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle args = getArguments();
         if (args != null) {
             msg = args.getString("msg");
         }
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_test, container, false);
         initView(view);
         return view;
     }
 
-    private void initView(View view) {
+    @Override
+    public void initView(View view) {
         mRecyclercview = (RecyclerView) view.findViewById(R.id.recyclercview);
 
         List<String> list = new ArrayList<>();
@@ -69,6 +76,11 @@ public class TestFargment extends BaseFragment {
 
         };
         mRecyclercview.setAdapter(adapter);
+    }
+
+
+    @Override
+    public void initData() {
 
     }
 }
